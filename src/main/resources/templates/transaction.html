@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Transaction List</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/createtransaction" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Create New Transation</a>
+        </h3>
+        <h2>Transaction List</h2>
+        <div class="table-responsive">
+            <table class="table" id="contact-table">
+                <thead>
+                <tr>
+                    <th>Transaction id</th>
+                    <th>Transaction Name</th>
+                    <th>Transaction Amount</th>
+                    <th>Transaction Type</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="transaction : ${transactions}">
+                    <td><a th:text="${transaction.id}" th:href="@{'/showtransaction/' + ${transaction.id}}"></a></td>
+                    <td th:text="${transaction.name}"></td>
+                    <td th:text="${transaction.amount}"></td>
+                    <td th:text="${transaction.transactionType}"></td>
+                    <td th:text="${transaction.date}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

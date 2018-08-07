@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Create Transaction</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/transaction" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Transaction</a>
+        </h3>
+        <h2>Create Transaction</h2>
+        <form action="/savetransaction">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" />
+                <label for="date">Date:</label>
+                <input type="text" class="form-control" name="date" />
+                <label for="amount">Amount:</label>
+                <input type="text" class="form-control" name="amount" />
+                <label for="transactionType">Transaction Type:</label>
+                <input type="text" class="form-control" name="transactionType" />
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

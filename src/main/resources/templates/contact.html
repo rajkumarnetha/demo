@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Contact List</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Contact</a>
+        </h3>
+        <h2>Contact List</h2>
+        <div class="table-responsive">
+            <table class="table" id="contact-table">
+                <thead>
+                <tr>
+                    <th>Contact id</th>
+                    <th>Contact Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="contact : ${contacts}">
+                    <td><a th:text="${contact.id}" th:href="@{'/show/' + ${contact.id}}"></a></td>
+                    <td th:text="${contact.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
